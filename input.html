@@ -58,7 +58,7 @@ var input = document.getElementById('input');
 		// paddle.style.left = x + "px";
 		var halfHeight = paddle.offsetHeight/2;
 		paddle.style.top = y/docHeight *docHeight - 100 + "px";
-		socket.emit('move', {player: playerName, y: y/docHeight});
+		socket.volatile.emit('move', {player: playerName, y: y/docHeight});
 		
 	}
   
