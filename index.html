@@ -23,7 +23,7 @@
 <script>
 var playerName;
 
-var socket = io.connect('http://localhost');
+var socket = io.connect('http://ec2-54-227-130-117.compute-1.amazonaws.com/');
 // // socket.emit('my other event', { my: 'data' });
   socket.on('playerConnected', function (data) {
     console.log(data);

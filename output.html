@@ -14,7 +14,7 @@
 <script>
 	var player1 = document.getElementById('player1');
 
-	var socket = io.connect('http://localhost');
+	var socket = io.connect('http://ec2-54-227-130-117.compute-1.amazonaws.com/');
   socket.on('news', function (data) {
     console.log(data);
     // socket.emit('my other event', { my: 'data' });
