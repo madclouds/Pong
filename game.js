@@ -358,8 +358,10 @@ DOT.Bubble = function() {
 
     this.r = (dotSize > maxDotSize) ? maxDotSize : dotSize;
 
-    this.speedX = (Math.random() * 8 -4);
-    this.speedY = (Math.random() * 8 -4);
+    this.speedX = (Math.random() * 4-2);
+    if (this.speedX > 0) {this.speedX += 2;};
+    if (this.speedX < 0) {this.speedX -= 2;};
+    this.speedY = (Math.random() * 3 -1.5);
     this.color = DOT.randomColor();
     this.red = Math.floor( Math.random()*255);
     this.green = Math.floor( Math.random()*255);
