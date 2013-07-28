@@ -32,7 +32,7 @@ io.sockets.on('connection', function (socket) {
   socket.emit('playerConnected', { player: 'player'+players });
   socket.on('move', function (data) {
   	console.log(data);
-  	io.sockets.emit('updatePlayer', data);
+  	io.sockets.volatile.emit('updatePlayer', data);
   }); 
 
   
