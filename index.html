@@ -11,10 +11,7 @@
 	
 	<div class="input" id="input"></div>
 
-	<div class="output">
-		<div id="x"></div>
-		<div id="y"></div>
-	</div>
+	<div class="output" id="output"></div>
 
 	<div class="paddle" id="paddle"></div>
 
@@ -24,6 +21,7 @@
 var playerName;
 
 var socket = io.connect('http://ec2-54-227-130-117.compute-1.amazonaws.com/');
+var socket = io.connect('http://localhost');
 // // socket.emit('my other event', { my: 'data' });
   socket.on('playerConnected', function (data) {
     console.log(data);
@@ -37,8 +35,7 @@ var input = document.getElementById('input');
 
 	var paddle = document.getElementById('paddle');
 
-	var outputX = document.getElementById('x');
-	var outputY = document.getElementById('y');
+	var output = document.getElementById('output');
 
 	function touchMoved (data) {
 		data.preventDefault();
@@ -54,8 +51,7 @@ var input = document.getElementById('input');
 	}
 
 	function movePaddle (x,y) {
-		outputX.innerHTML = "X: " + x;
-		outputY.innerHTML = "Y: " + y;
+		output.innerHTML = playerName + " X: " + x + "Y: " + y ;
 
 		// paddle.style.left = x + "px";
 		var halfHeight = paddle.offsetHeight/2;

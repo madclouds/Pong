@@ -20,7 +20,7 @@ app.get('/output.html', function (req, res) {
 var players = 0;
 
 io.sockets.on('connection', function (socket) {
-	players++;
+	players = (players==1)? 2 :1;
   socket.emit('playerConnected', { player: 'player'+players });
   socket.on('move', function (data) {
   	console.log(data);
