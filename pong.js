@@ -17,6 +17,10 @@ app.get('/output.html', function (req, res) {
   res.sendfile(__dirname + '/output.html');
 });
 
+app.get('/game.js', function (req, res) {
+  res.sendfile(__dirname + '/game.js');
+});
+
 var players = 0;
 
 io.sockets.on('connection', function (socket) {
