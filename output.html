@@ -25,7 +25,8 @@
 	socket.on('updatePlayer', function (data) {
     console.log(data);
 	    var player = document.getElementById(data.player);
-	    player.style.top = data.y +"px";
+	    var docHeight = document.body.offsetHeight;
+	    player.style.top = data.y* docHeight+"px";
     // socket.emit('my other event', { my: 'data' });
   });
 </script>
