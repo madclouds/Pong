@@ -51,12 +51,14 @@ var input = document.getElementById('input');
 	}
 
 	function movePaddle (x,y) {
-		output.innerHTML = playerName + " X: " + x + "Y: " + y ;
+		var docHeight = document.body.offsetHeight;
+		output.innerHTML = playerName + " X: " + x + "Y: " + y/docHeight ;
+		;
 
 		// paddle.style.left = x + "px";
 		var halfHeight = paddle.offsetHeight/2;
-		paddle.style.top = y - halfHeight + "px";
-		socket.emit('move', {player: playerName, y: y-halfHeight});
+		paddle.style.top = y/docHeight *docHeight - 100 + "px";
+		socket.emit('move', {player: playerName, y: y/docHeight *docHeight - 100});
 		
 	}
   
