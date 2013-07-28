@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>PONG Input</title>
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	
+	<div class="input" id="input"></div>
+
+	<div class="output" id="output"></div>
+
+	<div class="paddle" id="paddle"></div>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+var playerName;
+
+var socket = io.connect('http://ec2-54-227-130-117.compute-1.amazonaws.com/');
+// var socket = io.connect('http://localhost');
+// // socket.emit('my other event', { my: 'data' });
+  socket.on('playerConnected', function (data) {
+    console.log(data);
+    playerName = data.player;
+    // socket.emit('my other event', { my: 'data' });
+  });
+
+var input = document.getElementById('input');
+	input.addEventListener("touchmove", touchMoved, false);
+	input.addEventListener("mousemove", mouseMoved, false);
+
+	var paddle = document.getElementById('paddle');
+
+	var output = document.getElementById('output');
+
+	function touchMoved (data) {
+		data.preventDefault();
+		var touches = data.changedTouches;
+
+		movePaddle(touches[0].pageX, touches[0].pageY);
+	}
+
+	function mouseMoved (data) {
+		data.preventDefault();
+		console.log(data);
+		movePaddle(data.clientX, data.clientY);
+	}
+
+	function movePaddle (x,y) {
+		var docHeight = document.body.offsetHeight;
+		output.innerHTML = playerName + " X: " + x + "Y: " + y/docHeight ;
+		;
+
+		// paddle.style.left = x + "px";
+		var halfHeight = paddle.offsetHeight/2;
+		paddle.style.top = y/docHeight *docHeight - 100 + "px";
+		socket.emit('move', {player: playerName, y: y/docHeight});
+		
+	}
+  
+</script>
+</body>
+</html>

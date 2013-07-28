@@ -13,6 +13,10 @@ app.get('/main.css', function (req, res) {
   res.sendfile(__dirname + '/main.css');
 });
 
+app.get('/input.html', function (req, res) {
+  res.sendfile(__dirname + '/input.html');
+});
+
 app.get('/output.html', function (req, res) {
   res.sendfile(__dirname + '/output.html');
 });
