@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>PONG Output</title>
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<div class="paddle" id="player1"></div>
+	<div class="paddle" id="player2"></div>
+	<div class="ball" id="ball"></div>
+	
+<script src="/socket.io/socket.io.js"></script>
+<script>
+	var player1 = document.getElementById('player1');
+
+	var socket = io.connect('http://localhost');
+  socket.on('news', function (data) {
+    console.log(data);
+    // socket.emit('my other event', { my: 'data' });
+  });
+
+
+	socket.on('updatePlayer', function (data) {
+    console.log(data);
+	    var player = document.getElementById(data.player);
+	    player.style.top = data.y +"px";
+    // socket.emit('my other event', { my: 'data' });
+  });
+</script>
+</body>
+</html>

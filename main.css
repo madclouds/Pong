@@ -1,0 +1,75 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+@font-face {  
+  font-family: archerpro-bold;  
+  src: url( ArcherPro-Bold.otf );  
+} 
+@font-face {  
+  font-family: blackjack;  
+  src: url( inc/black_jack.ttf );  
+} 
+
+
+/* Common */
+body,html {position: relative;height: 100%; background: #eee;}
+.input {height: 100%; width: 100%;}
+.output {position: fixed; top: 50px; width: 420px; left: 10%;}
+.output div {display: inline-block; width: 200px; height: 50px; font-size: 20px;}
+
+.menu {width: 400px; margin: 50px auto;}
+.menu a {padding: 50px; background: #999; font-size: 100px; text-align: center; display: block; margin: 30px auto; color: #fff; text-decoration: none; font-family: sans-serif;}
+
+.paddle {width: 50px; height: 200px; position: absolute; background: #999; top: 0; left: 50%; margin-left: -25px;}
+.paddle#player1 {left: 0; margin:0;}
+.paddle#player2 {left: auto;right: 0; margin: 0;}
+.ball {width: 20px; height: 20px; background: #333; top: 75px; left: 50%; margin-left: -25px;position: absolute;}
+
+/*Large*/
+@media screen and (min-width: 7in) {
+
+}
+
+/*Small*/
+@media screen and (max-width: 7in) {
+
+}
+
